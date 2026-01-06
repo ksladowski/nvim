@@ -1,3 +1,18 @@
+-- TODO LIST --
+-- oil.nvim
+-- treesitter
+-- lsp
+-- dotnet
+-- markdown
+-- linters
+-- vimwiki or similar
+-- lazygit integration
+-- which key
+-- breadcrumbs?
+-- nvim-cmp completion
+-- snippets
+-- nvim-tree vs neotree
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
