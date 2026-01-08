@@ -6,32 +6,32 @@
 -- markdown
 -- linters
 -- vimwiki or similar
--- lazygit integration
 -- which key
 -- breadcrumbs?
 -- nvim-cmp completion
 -- snippets
+-- standardize git status symbols across all plugins (modeline, nvim-tree, etc)
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 vim.g.have_nerd_font = false
 
 vim.o.number = true
 
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 -- remove "How-to disable mouse" from right click menu
-vim.cmd [[
+vim.cmd([[
   aunmenu PopUp.How-to\ disable\ mouse
   aunmenu PopUp.\-2-
-]]
+]])
 
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
 -- Use OS clipboard
 vim.schedule(function()
-  vim.o.clipboard = 'unnamedplus'
+    vim.o.clipboard = "unnamedplus"
 end)
 
 vim.o.breakindent = true
@@ -46,7 +46,7 @@ vim.o.smartcase = true
 
 -- Keep signcolumn on by default
 -- This is margins for stuff like git statuses and breakpoints
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 
 -- Decrease update time (for .swp files and such)
 vim.o.updatetime = 250
@@ -67,11 +67,11 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.o.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.o.expandtab = true
 
-vim.o.inccommand = 'split'
+vim.o.inccommand = "split"
 
 vim.o.cursorline = true
 
@@ -84,25 +84,25 @@ vim.o.confirm = true
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- <C-\><C-n> is the default to exit terminal mode
 -- Allow EscEsc instead
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<M-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<M-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<M-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<M-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-vim.keymap.set('n', '<M-n>', 'gt', { desc = 'Go to the next tab page' })
-vim.keymap.set('n', '<M-p>', 'gT', { desc = 'Go to the previous tab page' })
+vim.keymap.set("n", "<M-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<M-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<M-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<M-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "<M-n>", "gt", { desc = "Go to the next tab page" })
+vim.keymap.set("n", "<M-p>", "gT", { desc = "Go to the previous tab page" })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -110,25 +110,17 @@ vim.keymap.set('n', '<M-p>', 'gT', { desc = 'Go to the previous tab page' })
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.hl.on_yank()`
-vim.api.nvim_create_autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })
 
-require('config.lazy')
+require("config.lazy")
 
 return
-
-
-
-
-
-
-
-
 
 --   -- LSP Plugins
 --   {
