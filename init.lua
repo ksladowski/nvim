@@ -118,7 +118,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
-require("config.lazy")
+require("init")
+require("lz.n").load("lazy")
 
 return
 
