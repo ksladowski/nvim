@@ -1,21 +1,22 @@
 return {
-    {
-        "nvim-tree/nvim-tree.lua",
-        config = function()
-            require("nvim-tree").setup({
-                sort = {
-                    sorter = "case_sensitive",
+    "nvim-neo-tree/neo-tree.nvim",
+    version = "*",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons",
+        "MunifTanjim/nui.nvim",
+    },
+    -- lazy = false,
+    keys = {
+        { "\\", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
+    },
+    opts = {
+        filesystem = {
+            window = {
+                mappings = {
+                    ["\\"] = "close_window",
                 },
-                view = {
-                    width = 30,
-                },
-                renderer = {
-                    group_empty = true,
-                },
-                filters = {
-                    dotfiles = true,
-                },
-            })
-        end,
+            },
+        },
     },
 }
