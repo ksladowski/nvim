@@ -12,6 +12,21 @@ require("lua.plugins.gitsigns")
 require("lua.plugins.treesitter")
 require("lua.plugins.fidget")
 require("lua.plugins.neo-tree")
+require("lua.plugins.blink")
+require("lua.plugins.autopairs")
+require("lua.plugins.surround")
+require("lua.plugins.notify")
+require("lua.plugins.noice")
+require("lua.plugins.tiny-inline-diagnostic")
+require("lua.plugins.rainbow-delimiters")
+require("lua.plugins.mini-indentscope")
+require("lua.plugins.mini-ai")
+require("lua.plugins.mini-hipatterns")
+require("lua.plugins.mini-extra")
+require("lua.plugins.neogit")
+require("lua.plugins.highlight-colors")
+require("lua.plugins.diffview")
 
--- require("lz.n").load("lua.plugins")
+-- require("lua.plugins.trouble") Idk, lot of scope creep seems like
+
 return

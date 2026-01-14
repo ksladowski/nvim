@@ -1,13 +1,20 @@
 vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config({
-  severity_sort = true,
-  signs = true, -- TODO icons
-  float = {
-    border = "rounded",
-  },
-  virtual_text = true,
+    severity_sort = true,
+    signs = true,
+    float = {
+        border = "rounded",
+    },
+    virtual_text = false,
 })
 
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('nil_ls')
+local symbols = { Error = "󰅙", Info = "󰋼", Hint = "󰌵", Warn = "" }
+
+for name, icon in pairs(symbols) do
+    local hl = "DiagnosticSign" .. name
+    vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
+end
+
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("nil_ls")
