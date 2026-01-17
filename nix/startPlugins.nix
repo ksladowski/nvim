@@ -5,11 +5,19 @@
     catppuccin-nvim
     colorful-menu-nvim
     conform-nvim
+    dial-nvim
     diffview-nvim
+    dropbar-nvim
     fidget-nvim
+    flash-nvim
     fzf-lua
     gitsigns-nvim
+    helpview-nvim
+    image-nvim
+    inc-rename-nvim
     lualine-nvim
+    luasnip
+    Luasnip-snippets-nvim
     mini-ai
     mini-extra
     mini-hipatterns
@@ -21,22 +29,20 @@
     nvim-autopairs
     nvim-highlight-colors
     nvim-lspconfig
+    nvim-lsp-file-operations
     nvim-notify
     nvim-surround
     nvim-treesitter
     nvim-treesitter-context
     nvim-web-devicons
+    nvim-window-picker
+    oil-nvim
     plenary-nvim
     rainbow-delimiters-nvim
+    render-markdown-nvim
+    smartcolumn-nvim
     tiny-inline-diagnostic-nvim
     trouble-nvim
-    ts-comments-nvim
     which-key-nvim
-    # oil-nvim
-    # luasnip
-    # helpview-nvim
-    # markdown-preview-nvim
-    # nvim-jdtls
-    # typst-preview-nvim
     ;
 }
