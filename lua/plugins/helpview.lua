@@ -1,1 +1,4 @@
-require("helpview").setup()
+return {
+    "OXY2DEV/helpview.nvim",
+    lazy = false
+};

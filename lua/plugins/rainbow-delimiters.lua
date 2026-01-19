@@ -1,1 +1,3 @@
-require('rainbow-delimiters.setup').setup {}
+return {
+                "HiPhish/rainbow-delimiters.nvim"
+}

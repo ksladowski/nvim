@@ -3,37 +3,37 @@ vim.g.maplocalleader = " "
 
 -- Create a map with noremap set to true
 local function mkNoremap(mode, key, map, opts)
-  opts = opts or {}
+    opts = opts or {}
 
-  -- Merge the passed opts with the base ones. Using non-recursive tbl_extend.
-  base_opts = { noremap = true, silent = true }
-  opts = vim.tbl_extend("force", base_opts, opts)
+    -- Merge the passed opts with the base ones. Using non-recursive tbl_extend.
+    base_opts = { noremap = true, silent = true }
+    opts = vim.tbl_extend("force", base_opts, opts)
 
-  vim.keymap.set(mode, key, map, opts)
+    vim.keymap.set(mode, key, map, opts)
 end
 
 function nnoremap(key, map, opts)
-  mkNoremap("n", key, map, opts)
+    mkNoremap("n", key, map, opts)
 end
 
 function vnoremap(key, map, opts)
-  mkNoremap("x", key, map, opts)
+    mkNoremap("x", key, map, opts)
 end
 
 function inoremap(key, map, opts)
-  mkNoremap("i", key, map, opts)
+    mkNoremap("i", key, map, opts)
 end
 
 function onoremap(key, map, opts)
-  mkNoremap("o", key, map, opts)
+    mkNoremap("o", key, map, opts)
 end
 
 function tnoremap(key, map, opts)
-  mkNoremap("t", key, map, opts)
+    mkNoremap("t", key, map, opts)
 end
 
 function anoremap(key, map, opts)
-  mkNoremap({ "n", "x", "o" }, key, map, opts)
+    mkNoremap({ "n", "x", "o" }, key, map, opts)
 end
 
 -- Clear highlights on search when pressing <Esc> in normal mode
@@ -65,20 +65,20 @@ nnoremap("<M-p>", "gT", { desc = "Go to the previous tab page" })
 -- y". for last inserted test
 -- y"=sin(3.14) for your mathematical needs
 nnoremap('y"', function()
-  local prompt = vim.fn.getcharstr()
-  local contents
-  -- Run expression and evaluate it
-  if prompt == "=" then
-    local expr = vim.fn.input({ prompt = "=" })
-    local unsplit_output = vim.fn.eval(expr)
-    if type(unsplit_output) ~= "string" then
-      contents = unsplit_output
+    local prompt = vim.fn.getcharstr()
+    local contents
+    -- Run expression and evaluate it
+    if prompt == "=" then
+        local expr = vim.fn.input({ prompt = "=" })
+        local unsplit_output = vim.fn.eval(expr)
+        if type(unsplit_output) ~= "string" then
+            contents = unsplit_output
+        else
+            local split_output = vim.fn.split(unsplit_output, "\n")
+            contents = #split_output == 1 and split_output[1] or unsplit_output
+        end
     else
-      local split_output = vim.fn.split(unsplit_output, "\n")
-      contents = #split_output == 1 and split_output[1] or unsplit_output
+        contents = vim.fn.keytrans(vim.fn.getreg(prompt))
     end
-  else
-    contents = vim.fn.keytrans(vim.fn.getreg(prompt))
-  end
-  vim.fn.setreg(vim.v.register, contents)
+    vim.fn.setreg(vim.v.register, contents)
 end)

@@ -1,3 +1,7 @@
+return {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
 require("lualine").setup({
     options = {
         disabled_filetypes = {
@@ -25,18 +29,18 @@ require("lualine").setup({
             },
         },
         lualine_x = {
-            {
-                function()
-                    r = require("noice").api.statusline.mode.get()
-                    if not r then
-                        r = ""
-                    end
-                    return r:gsub("[Rr]ecording%s*@%s*", "")
-                end,
-                cond = require("noice").api.statusline.mode.has,
-                icon = "",
-                color = { fg = "#f38ba8" },
-            },
+            -- {
+            --     function()
+            --         r = require("noice").api.statusline.mode.get()
+            --         if not r then
+            --             r = ""
+            --         end
+            --         return r:gsub("[Rr]ecording%s*@%s*", "")
+            --     end,
+            --     cond = require("noice").api.statusline.mode.has,
+            --     icon = "",
+            --     color = { fg = "#f38ba8" },
+            -- },
             { "location" },
             { "progress" },
         },
@@ -74,3 +78,5 @@ require("lualine").setup({
         },
     },
 })
+    end
+}

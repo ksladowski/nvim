@@ -1,1 +1,4 @@
-require("inc_rename").setup()
+return {
+    "smjonas/inc-rename.nvim",
+    opts = {},
+}
