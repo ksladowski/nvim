@@ -2,16 +2,23 @@ vim.lsp.inlay_hint.enable(true)
 
 vim.diagnostic.config({
     severity_sort = true,
-    signs = true,
     float = {
         border = "rounded",
+        format = function(d)
+            return ("%s (%s) [%s]"):format(d.message, d.source, d.code or d.user_data.lsp.code)
+        end,
     },
-    virtual_text = false,
+    virtual_text = true,
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "󰋼",
+            [vim.diagnostic.severity.HINT] = "󰌵",
+        },
+    },
+    underline = true,
+    jump = {
+        float = true,
+    },
 })
-
-local symbols = { Error = "󰅙", Info = "󰋼", Hint = "󰌵", Warn = "" }
-
-for name, icon in pairs(symbols) do
-    local hl = "DiagnosticSign" .. name
-    vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-end
