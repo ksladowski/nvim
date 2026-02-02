@@ -48,7 +48,10 @@ return {
                     miniclue.gen_clues.z(),
 
                     -- Top Level Hints
-                    { mode = "n", keys = "<Leader>b", desc = "+Buffers" },
+                    { mode = "n", keys = "<Leader>d", desc = "+[d]ebug" },
+                    { mode = "n", keys = "<Leader>h", desc = "+[h]elp" },
+                    { mode = "n", keys = "<Leader>g", desc = "+[g]it" },
+                    { mode = "n", keys = "<Leader>l", desc = "+[l]sp" },
 
                     { mode = "n", keys = "]b", postkeys = "]" },
                     { mode = "n", keys = "]w", postkeys = "]" },

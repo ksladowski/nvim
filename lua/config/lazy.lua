@@ -35,4 +35,4 @@ require("lazy").setup({
     change_detection = { enabled = false },
 })
 
-vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { noremap = true })
+vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { noremap = true, desc = "[L]azy" })
