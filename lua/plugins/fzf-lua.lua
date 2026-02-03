@@ -15,7 +15,7 @@ return {
         { "<leader>s", "<cmd>FzfLua live_grep_native<cr>", desc = "[s]earch cwd with rg" },
         { "<leader>/", "<cmd>FzfLua grep_curbuf<cr>", desc = "[/] Grep Current Buffer" },
         { "<leader>hm", "<cmd>FzfLua manpages<cr>", desc = "Help [m]an Pages" },
-        { "<leader>hn", "<cmd>FzfLua helptags<cr>", desc = "Help [N]eovim" },
-        { "<leader>hk", "<cmd>FzfLua keymaps<cr>", desc = "Help [K]eybindings" },
+        { "<leader>hn", "<cmd>FzfLua helptags<cr>", desc = "Help [n]eovim" },
+        { "<leader>hk", "<cmd>FzfLua keymaps<cr>", desc = "Help [k]eybindings" },
     },
 }
