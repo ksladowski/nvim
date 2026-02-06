@@ -40,4 +40,7 @@ return {
     end,
 
     vim.lsp.enable("nil_ls"),
+    vim.lsp.enable("markdown_oxide"),
+    vim.lsp.enable("pylsp"),
+    vim.lsp.enable("ts_ls"),
 }
