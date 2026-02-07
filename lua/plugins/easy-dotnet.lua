@@ -1,9 +1,11 @@
+local dotnetFiletypes = { "razor", "cs", "csproj", "sln", "slnx" }
+
 return {
     "GustavEikaas/easy-dotnet.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", "ibhagwan/fzf-lua", "mfussenegger/nvim-dap" },
+    dependencies = { "nvim-lua/plenary.nvim", "ibhagwan/fzf-lua", "mfussenegger/nvim-dap", "folke/snacks.nvim" },
     lazy = true,
     cmd = "Dotnet",
-    ft = { "razor", "cs", "csproj", "sln", "slnx" },
+    ft = dotnetFiletypes,
     config = function()
         local dotnet = require("easy-dotnet")
         dotnet.setup({
@@ -64,11 +66,20 @@ return {
                     register = "+",
                 },
             },
-            picker = "fzf",
+            picker = "snacks",
         })
 
-        vim.keymap.set("n", "<leader>Dn", "<cmd>Dotnet add package<cr>", { desc = "[D]otnet [n]uget" })
-        vim.keymap.set("n", "<leader>Db", "<cmd>Dotnet build<cr>", { desc = "[D]otnet [b]uild" })
-        vim.keymap.set("n", "<leader>DB", "<cmd>Dotnet build solution<cr>", { desc = "[D]otnet [B]uild solution" })
+        Snacks.keymap.set("n", "<localleader>n", "<cmd>Dotnet add package<cr>", {
+            ft = dotnetFiletypes,
+            desc = "Add nuget package",
+        })
+        Snacks.keymap.set("n", "<localleader>N", "<cmd>Dotnet remove package<cr>", {
+            ft = dotnetFiletypes,
+            desc = "Remove nuget package",
+        })
+        Snacks.keymap.set("n", "<localleader>b", "<cmd>Dotnet build<cr>", { desc = "Build Project" })
+        Snacks.keymap.set("n", "<localleader>B", "<cmd>Dotnet build solution<cr>", { desc = "Build Solution" })
+        Snacks.keymap.set("n", "<localleader>t", "<cmd>Dotnet testrunner<cr>", { desc = "Testrunner" })
+        Snacks.keymap.set("n", "<localleader>a", "<cmd>Dotnet new<cr>", { desc = "Add from template" })
     end,
 }

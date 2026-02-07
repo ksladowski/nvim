@@ -2,11 +2,20 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    dependencies = { "lewis6991/gitsigns.nvim" },
+    dependencies = { "lewis6991/gitsigns.nvim", "nvim-mini/mini.clue" },
     ---@type snacks.Config
     opts = {
         image = { enabled = true },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            win = {
+                input = {
+                    keys = {
+                        ["<Esc>"] = { "close", mode = { "n", "i" } },
+                    },
+                },
+            },
+        },
         explorer = { enabled = true },
         indent = { enabled = true },
         dim = { enabled = true },
@@ -18,7 +27,6 @@ return {
         statuscolumn = { enabled = true },
         notify = { enabled = true },
         notifier = { enabled = true },
-        lazygit = { enabled = true },
         gh = { enabled = true },
     },
     keys = {
@@ -404,13 +412,6 @@ return {
                 Snacks.terminal()
             end,
             desc = "Toggle Terminal",
-        },
-        {
-            "<c-_>",
-            function()
-                Snacks.terminal()
-            end,
-            desc = "which_key_ignore",
         },
         {
             "]]",

@@ -5,11 +5,11 @@ return {
         require("lualine").setup({
             options = {
                 disabled_filetypes = {
-                    statusline = { "NvimTree" },
+                    statusline = { "snacks_dashboard", "snacks_layout_box" },
                     winbar = {},
                 },
                 component_separators = { left = "", right = "" },
-                section_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
             },
             sections = {
                 lualine_a = {

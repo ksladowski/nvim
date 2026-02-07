@@ -13,15 +13,22 @@ return {
         require("dapui").setup()
         require("nvim-dap-virtual-text").setup()
 
-        vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle [b]reakpoint" })
-        vim.keymap.set("n", "<leader>drc", dap.run_to_cursor, { desc = "[r]un to [c]ursor" })
+        vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+        vim.keymap.set("n", "<leader>dC", dap.run_to_cursor, { desc = "Run to Cursor" })
 
-        vim.keymap.set("n", "<F1>", dap.continue)
-        vim.keymap.set("n", "<F2>", dap.step_into)
-        vim.keymap.set("n", "<F3>", dap.step_over)
-        vim.keymap.set("n", "<F4>", dap.step_out)
-        vim.keymap.set("n", "<F5>", dap.step_back)
-        vim.keymap.set("n", "<F13>", dap.restart)
+        vim.keymap.set("n", "<leader>dc", dap.continue)
+
+        vim.keymap.set("n", "<leader>di", dap.step_into)
+        vim.keymap.set("n", "<leader>ds", dap.step_over)
+        vim.keymap.set("n", "<leader>do", dap.step_out)
+        vim.keymap.set("n", "<leader>db", dap.step_back)
+        vim.keymap.set("n", "<leader>dR", dap.restart)
+
+        local clues = require("mini.clue").config.clues
+        table.insert(clues, { mode = { "n", "x" }, keys = "<Leader>di", postkeys = "<Leader>d" })
+        table.insert(clues, { mode = { "n", "x" }, keys = "<Leader>ds", postkeys = "<Leader>d" })
+        table.insert(clues, { mode = { "n", "x" }, keys = "<Leader>do", postkeys = "<Leader>d" })
+        table.insert(clues, { mode = { "n", "x" }, keys = "<Leader>db", postkeys = "<Leader>d" })
 
         dap.listeners.before.attach.dapui_config = function()
             ui.open()
