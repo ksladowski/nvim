@@ -69,17 +69,21 @@ return {
             picker = "snacks",
         })
 
-        Snacks.keymap.set("n", "<localleader>n", "<cmd>Dotnet add package<cr>", {
+        -- e[x]ecute
+        Snacks.keymap.set("n", "<leader>xb", "<cmd>Dotnet build<cr>", { desc = "Build Project" })
+        Snacks.keymap.set("n", "<leader>xb", "<cmd>Dotnet clean<cr>", { desc = "Clean Solution" })
+        Snacks.keymap.set("n", "<leader>xB", "<cmd>Dotnet build solution<cr>", { desc = "Build Solution" })
+        Snacks.keymap.set("n", "<leader>xt", "<cmd>Dotnet testrunner<cr>", { desc = "Testrunner" })
+
+        Snacks.keymap.set("n", "<leader>cpa", "<cmd>Dotnet add package<cr>", {
             ft = dotnetFiletypes,
             desc = "Add nuget package",
         })
-        Snacks.keymap.set("n", "<localleader>N", "<cmd>Dotnet remove package<cr>", {
+        Snacks.keymap.set("n", "<leader>cpr", "<cmd>Dotnet remove package<cr>", {
             ft = dotnetFiletypes,
             desc = "Remove nuget package",
         })
-        Snacks.keymap.set("n", "<localleader>b", "<cmd>Dotnet build<cr>", { desc = "Build Project" })
-        Snacks.keymap.set("n", "<localleader>B", "<cmd>Dotnet build solution<cr>", { desc = "Build Solution" })
-        Snacks.keymap.set("n", "<localleader>t", "<cmd>Dotnet testrunner<cr>", { desc = "Testrunner" })
-        Snacks.keymap.set("n", "<localleader>a", "<cmd>Dotnet new<cr>", { desc = "Add from template" })
+        Snacks.keymap.set("n", "<leader>cN", "<cmd>Dotnet new<cr>", { desc = "Add from template" })
+        Snacks.keymap.set("n", "<leader>cn", "<cmd>Dotnet createfile<cr>", { desc = "File" })
     end,
 }

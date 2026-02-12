@@ -4,8 +4,9 @@ return {
     keys = {
         {
             "<leader>cr",
+            "<cmd>IncRename<cr>",
             mode = "n",
-            desc = "[C]ode [R]ename",
+            desc = "Inc Rename",
         },
     },
 }

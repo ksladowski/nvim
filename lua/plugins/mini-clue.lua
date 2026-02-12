@@ -47,14 +47,21 @@ return {
                     }),
                     miniclue.gen_clues.z(),
 
-                    -- Top Level Hints
-                    { mode = "n", keys = "<Leader>b", desc = "+Buffers" },
+                    { mode = "n", keys = "<leader>c", desc = "+lo[c]al" },
+                    { mode = "n", keys = "<leader>d", desc = "+[d]ebug" },
+                    { mode = "n", keys = "<leader>f", desc = "+[f]ile" },
+                    { mode = "n", keys = "<leader>G", desc = "+[G]ithub" },
+                    { mode = "n", keys = "<leader>g", desc = "+[g]it" },
+                    { mode = "n", keys = "<leader>h", desc = "+[h]elp" },
+                    { mode = "n", keys = "<leader>l", desc = "+[l]sp" },
+                    { mode = "n", keys = "<leader>t", desc = "+[t]oggles" },
 
+                    -- Top Level Hints
                     { mode = "n", keys = "]b", postkeys = "]" },
                     { mode = "n", keys = "]w", postkeys = "]" },
-
                     { mode = "n", keys = "[b", postkeys = "[" },
                     { mode = "n", keys = "[w", postkeys = "[" },
+
                     { mode = "n", keys = "gt", postkeys = "g" },
                     { mode = "n", keys = "gT", postkeys = "g" },
                 },
