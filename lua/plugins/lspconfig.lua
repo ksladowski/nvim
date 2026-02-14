@@ -40,6 +40,18 @@ return {
     end,
 
     vim.lsp.enable("nil_ls"),
+    vim.lsp.config("nil_ls", {
+        settings = {
+            ["nil"] = {
+                nix = {
+                    flake = {
+                        -- calls `nix flake archive` to put a flake and its output to store
+                        autoArchive = false,
+                    },
+                },
+            },
+        },
+    }),
     vim.lsp.enable("markdown_oxide"),
     vim.lsp.enable("pylsp"),
     vim.lsp.enable("ts_ls"),
