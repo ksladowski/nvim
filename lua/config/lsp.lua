@@ -22,3 +22,5 @@ vim.diagnostic.config({
         float = true,
     },
 })
+
+vim.api.nvim_set_keymap("n", "grd", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Show LSP Diagnostic" })
