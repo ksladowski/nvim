@@ -93,7 +93,18 @@ return {
         ---@module 'roslyn.config'
         ---@type RoslynNvimConfig
         opts = {
-            -- your configuration comes here; leave empty for default settings
+            cmd = { "roslyn-ls" }, -- Uses the wrapper from overlay
+            filewatching = "roslyn",
+        },
+    },
+    -- Just for dotnet because the roslyn plugin hardcodes a mason dependency for razor cohosting even though I overlayed the lsp on nixpkgs
+    {
+        "mason-org/mason.nvim",
+        opts = {
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:Crashdummyy/mason-registry",
+            },
         },
     },
 }

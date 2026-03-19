@@ -8,7 +8,7 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-        completion = { documentation = { auto_show = false } },
+        completion = { documentation = { auto_show = true } },
 
         signature = { enabled = true },
 

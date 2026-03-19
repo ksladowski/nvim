@@ -15,6 +15,11 @@ return {
                     },
                 },
             },
+            sources = {
+                files = { hidden = true },
+                grep = { hidden = true },
+                explorer = { hidden = true },
+            },
         },
         explorer = { enabled = true },
         indent = { enabled = true },
