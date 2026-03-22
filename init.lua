@@ -797,7 +797,7 @@ require("lazy").setup({
     { -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
-        -- build = ':TSUpdate',
+        build = ":TSUpdate",
         branch = "main",
         -- [[ Configure Treesitter ]] See `:help nvim-treesitter-intro`
         config = function()
@@ -814,8 +814,10 @@ require("lazy").setup({
                 "vim",
                 "vimdoc",
                 "nix",
+                "c_sharp",
+                "razor",
             }
-            require("nvim-treesitter") --.install(parsers)
+            require("nvim-treesitter").install(parsers)
             vim.api.nvim_create_autocmd("FileType", {
                 callback = function(args)
                     local buf, filetype = args.buf, args.match
@@ -843,6 +845,54 @@ require("lazy").setup({
             })
         end,
     },
+    {
+        "GustavEikaas/easy-dotnet.nvim",
+        branch = "feat/initial-razor",
+        dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+        config = function()
+            require("easy-dotnet").setup()
+        end,
+    },
+    -- {
+    --     "seblyng/roslyn.nvim",
+    --     ---@module 'roslyn.config'
+    --     ---@type RoslynNvimConfig
+    --     ft = { "cs", "razor" },
+    --     lazy = false,
+    --     config = function()
+    --         local rzls_path =
+    --             vim.fn.expand("/home/kevin/Downloads/microsoft.codeanalysis.languageserver.linux-x64/.razorExtension")
+    --
+    --         local cmd = {
+    --             "Microsoft.CodeAnalysis.LanguageServer",
+    --             "--stdio",
+    --             "--logLevel=Trace",
+    --             "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+    --             "--razorSourceGenerator=" .. vim.fs.joinpath(rzls_path, "Microsoft.CodeAnalysis.Razor.Compiler.dll"),
+    --             "--razorDesignTimePath="
+    --                 .. vim.fs.joinpath(rzls_path, "Targets", "Microsoft.NET.Sdk.Razor.DesignTime.targets"),
+    --             "--extension=" .. vim.fs.joinpath(rzls_path, "Microsoft.VisualStudioCode.RazorExtension.dll"),
+    --         }
+    --
+    --         vim.lsp.config("roslyn", {
+    --             cmd = cmd,
+    --             capabilities = {
+    --                 textDocument = {
+    --                     colorProvider = nil, -- Tell the server/client this isn't supported
+    --                 },
+    --             },
+    --         })
+    --     end,
+    -- },
+    -- {
+    --     "mason-org/mason.nvim",
+    --     opts = {
+    --         registries = {
+    --             "github:mason-org/mason-registry",
+    --             "github:Crashdummyy/mason-registry",
+    --         },
+    --     },
+    -- },
 
     -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
     -- init.lua. If you want these files, they are in the repository, so you can just download them and
