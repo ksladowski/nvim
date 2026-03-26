@@ -44,6 +44,7 @@ require("fzf")
 require("git")
 require("filemanager")
 require("editing")
+require("completion")
 
 -- Diagnostic Config & Keymaps
 -- See :help vim.diagnostic.Opts

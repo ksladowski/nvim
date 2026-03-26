@@ -46,6 +46,7 @@ require("flash").setup({
             end,
             jump_labels = true,
             multi_line = false,
+            jump = { autojump = true, },
         },
         treesitter = {
             jump = { pos = "range", autojump = true },

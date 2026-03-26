@@ -54,3 +54,6 @@ sections = {
     lualine_a = { {'mode', fmt = function(s) return mode_map[s] or s end} },
   }
 })
+
+-- Indent guides
+vim.pack.add({ 'https://github.com/saghen/blink.indent' })

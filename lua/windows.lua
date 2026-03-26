@@ -14,4 +14,6 @@ vim.pack.add({"https://github.com/s1n7ax/nvim-window-picker"})
 require("window-picker").setup({
     hint = 'floating-letter',
 })
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree<cr>", { desc = "Neotree" })
+
+-- TODO Currently not doing anything with this, it returns a window id and operating on that id is beyond the scope
+vim.keymap.set("n", "<leader>w", function() require('window-picker').pick_window() end, { desc = "Window Picker" })
