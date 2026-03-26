@@ -8,6 +8,7 @@ require("dial.config").augends:register_group{
     augend.integer.alias.decimal,   -- nonnegative decimal number (0, 1, 2, 3, ...)
     augend.integer.alias.hex,       -- nonnegative hex number  (0x01, 0x1a1f, etc.)
     augend.date.alias["%Y/%m/%d"],  -- date (2022/02/19, etc.)
+    augend.constant.alias.bool,    -- boolean value (true <-> false)
   },
   }
 
@@ -27,57 +28,56 @@ end)
 -- Flash
 vim.pack.add({"https://github.com/folke/flash.nvim"})
 
-local flashopts = {
-highlight = {
-    backdrop = false,
-    matches = false,
-    priority = 5000,
-    groups = {
-      label = "FlashMatch",
-    },
-  },
-  modes = {
-    -- options used when flash is activated through
-    -- `f`, `F`, `t`, `T`, `;` and `,` motions
-    char = {
-      jump_labels = true,
-      highlight = {
-          backdrop = false
-      },
-    },
-    treesitter = {
-      jump = { pos = "range", autojump = true },
-      search = { incremental = false },
-      label = { before = true, after = true, style = "inline" },
-      highlight = {
-        backdrop = false,
+require("flash").setup({
+    highlight = {
+        backdrop = true,
         matches = false,
-      },
+        priority = 5000,
+        groups = {
+            label = "FlashMatch",
+        },
     },
-    treesitter_search = {
-      jump = { pos = "range" },
-      search = { multi_window = true, wrap = true, incremental = false },
-      remote_op = { restore = true },
-      label = { before = true, after = true, style = "inline" },
+    modes = {
+        char = {
+            config = function(opts)
+                -- autohide flash when in operator-pending mode
+                -- Also seems to require remote_op motion to be false
+                opts.autohide = vim.fn.mode(true):find("no")
+            end,
+            jump_labels = true,
+            multi_line = false,
+        },
+        treesitter = {
+            jump = { pos = "range", autojump = true },
+            search = { incremental = false },
+            label = { before = true, after = true, style = "inline" },
+            highlight = {
+                backdrop = false,
+                matches = false,
+            },
+        },
+        treesitter_search = {
+            jump = { pos = "range" },
+            search = { multi_window = true, wrap = true, incremental = false },
+            remote_op = { restore = true },
+            label = { before = true, after = true, style = "inline" },
+        },
     },
-  },
-  prompt = {
-    prefix = { { "󱐋", "FlashPromptIcon" } },
-  },
-      remote_op = { restore = true, motion = true },
-}
-
-require("flash").setup(flashopts) -- to activate fFtT
+    prompt = {
+        prefix = { { "󱐋", "FlashPromptIcon" } },
+    },
+    remote_op = { restore = true, motion = false },
+})
 
 vim.keymap.set({"n", "x", "o"}, "s", function()
-    require("flash").jump(flashopts)
+    require("flash").jump()
 end)
 vim.keymap.set({"n", "x", "o"}, "S", function()
-    require("flash").treesitter(flashopts)
+    require("flash").treesitter()
 end)
 vim.keymap.set({"x", "o"}, "r", function()
-    require("flash").remote(flashopts)
+    require("flash").remote()
 end)
 vim.keymap.set({"x", "o"}, "R", function()
-    require("flash").treesitter_search(flashopts)
+    require("flash").treesitter_search()
 end)

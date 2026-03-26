@@ -11,4 +11,7 @@ vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 vim.pack.add({"https://github.com/s1n7ax/nvim-window-picker"})
--- require("window-picker").setup()
+require("window-picker").setup({
+    hint = 'floating-letter',
+})
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree<cr>", { desc = "Neotree" })

@@ -1,21 +1,5 @@
 vim.pack.add({ "https://github.com/nvim-neo-tree/neo-tree.nvim" })
   require('neo-tree').setup({
-    event_handlers = {
-      {
-        event = "neo_tree_buffer_enter",
-        handler = function()
-          -- This effectively hides the cursor
-          vim.cmd 'highlight! Cursor blend=100'
-        end
-      },
-      {
-        event = "neo_tree_buffer_leave",
-        handler = function()
-          -- Make this whatever your current Cursor highlight group is.
-          vim.cmd 'highlight! Cursor guibg=reverse blend=0'
-        end
-      }
-    },
 sources = {
       'filesystem',
       'git_status',
