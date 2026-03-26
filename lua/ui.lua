@@ -49,6 +49,7 @@ local mode_map = {
 }
 vim.pack.add({ "https://github.com/nvim-lualine/lualine.nvim" }, { confirm = false})
 require("lualine").setup({
+options = {  disabled_filetypes = { 'neo-tree' } },
 sections = {
     lualine_a = { {'mode', fmt = function(s) return mode_map[s] or s end} },
   }

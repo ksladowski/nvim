@@ -35,11 +35,15 @@ vim.opt.confirm = true
 -- Plugin dependencies
 vim.pack.add({"https://github.com/nvim-lua/plenary.nvim"})
 vim.pack.add({"https://github.com/nvim-tree/nvim-web-devicons"})
+vim.pack.add({"https://github.com/MunifTanjim/nui.nvim"})
+vim.pack.add({"https://github.com/3rd/image.nvim"})
 
 require("ui")
 require("windows")
 require("fzf")
 require("git")
+require("filemanager")
+require("editing")
 
 -- Diagnostic Config & Keymaps
 -- See :help vim.diagnostic.Opts
