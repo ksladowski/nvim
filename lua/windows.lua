@@ -10,10 +10,12 @@ vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
-vim.pack.add({"https://github.com/s1n7ax/nvim-window-picker"})
+vim.pack.add({ "https://github.com/s1n7ax/nvim-window-picker" })
 require("window-picker").setup({
-    hint = 'floating-letter',
+    hint = "floating-letter",
 })
 
 -- TODO Currently not doing anything with this, it returns a window id and operating on that id is beyond the scope
-vim.keymap.set("n", "<leader>w", function() require('window-picker').pick_window() end, { desc = "Window Picker" })
+vim.keymap.set("n", "<leader>w", function()
+    require("window-picker").pick_window()
+end, { desc = "Window Picker" })

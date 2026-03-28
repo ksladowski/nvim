@@ -6,14 +6,16 @@ vim.pack.add({
     },
 })
 
-require('blink.cmp').setup({
-  completion = {
-    documentation = { auto_show = true }
-  },
-  sources = {
-    default = { 'lsp', 'path', 'snippets', 'buffer' },
-  },
-  fuzzy = {
-    implementation = "prefer_rust_with_warning"
-  }
+require("blink.cmp").setup({
+    completion = {
+        documentation = { auto_show = true },
+    },
+    sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+    },
+    fuzzy = {
+        implementation = "prefer_rust_with_warning",
+    },
 })
+
+-- TODO LuaSnip
