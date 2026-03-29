@@ -37,3 +37,4 @@ end
 
 require("lsp.lua")
 require("lsp.nix")
+require("lsp.dotnet")

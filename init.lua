@@ -50,3 +50,4 @@ require("lsp")
 require("notes")
 -- require("dap") TODO
 require("terminal")
+require("ai")
