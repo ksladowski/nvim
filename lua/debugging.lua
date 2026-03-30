@@ -1,9 +1,9 @@
 vim.pack.add({ "https://github.com/mfussenegger/nvim-dap" })
 vim.pack.add({ "https://github.com/rcarriga/nvim-dap-ui" })
+vim.pack.add({ "https://github.com/nvim-neotest/nvim-nio" })
 vim.pack.add({ "https://github.com/theHamsta/nvim-dap-virtual-text" })
 
 local dap = require("dap")
-
 require("nvim-dap-virtual-text").setup({})
 
 local ui = require("dapui")
@@ -19,11 +19,6 @@ vim.keymap.set("n", "<leader>ds", dap.step_over)
 vim.keymap.set("n", "<leader>do", dap.step_out)
 vim.keymap.set("n", "<leader>db", dap.step_back)
 vim.keymap.set("n", "<leader>dR", dap.restart)
-
-require("which-key").show({
-    keys = "<leader>d",
-    loop = true, -- this will keep the popup open until you hit <esc>
-})
 
 dap.listeners.before.attach.dapui_config = function()
     ui.open()

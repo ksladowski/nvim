@@ -48,6 +48,6 @@ require("completion")
 require("formatting")
 require("lsp")
 require("notes")
--- require("dap") TODO
+require("debugging")
 require("terminal")
 require("ai")

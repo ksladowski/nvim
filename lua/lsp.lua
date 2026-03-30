@@ -1,6 +1,6 @@
 -- Yeah I know its not specifically LSP stuff but its all the same category imo
 
-vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" }) -- nice preconfigured lsp settings. Don't need to do anything to set them up other than vim.lsp.enable
+vim.pack.add({ "https://github.com/neovim/nvim-lspconfig" })                   -- nice preconfigured lsp settings. Don't need to do anything to set them up other than vim.lsp.enable
 vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter-context" }) -- if a method is too long for one screen, still see the header
 
 -- Diagnostic Config & Keymaps
@@ -32,7 +32,14 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Non NixOS Only
 if vim.fn.isdirectory("/etc/NIXOS") == 0 then
     vim.pack.add({ "https://github.com/mason-org/mason.nvim" })
+    require("mason").setup({
+        registries = {
+            "github:mason-org/mason-registry",
+            "github:Crashdummyy/mason-registry",
+        }
+    })
     vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter" })
+    require('nvim-treesitter').install { 'lua', 'c_sharp', 'razor' }
 end
 
 require("lsp.lua")
